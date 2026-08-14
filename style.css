@@ -327,14 +327,14 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35%;
-  margin: 15px 0 20px;
+  width: 50%;
+  margin: 5px 0 20px;
 }
 
 /* Estilo e posição da imagem PNG à esquerda e um pouco acima */
 .left-decoration {
   position: absolute;
-  left: 5%; /* Ajuste a distância da borda esquerda se preferir */
+  left: 1%; /* Ajuste a distância da borda esquerda se preferir */
   top: -20px; /* Valor negativo joga a imagem um pouco para cima */
   
   width: 65px; /* Ajuste o tamanho da sua imagem PNG */
