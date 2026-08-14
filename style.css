@@ -385,7 +385,7 @@ html, body {
   left: 50%;                /* Centraliza na horizontal */
   transform: translate(-50%, -50%); /* Alinha o centro exato do GIF */
   
-  width: 120px;             /* 👈 Ajuste o tamanho do GIF aqui */
+  width: 50px;             /* 👈 Ajuste o tamanho do GIF aqui */
   height: auto;             /* Mantém a proporção */
   
   z-index: 2;               /* Garante que fique acima da foto */
