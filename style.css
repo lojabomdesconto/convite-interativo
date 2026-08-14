@@ -335,9 +335,8 @@ html, body {
 /* Estilo e posição da imagem PNG à esquerda e um pouco acima */
 .left-decoration {
   position: absolute;
-  left: 70%; /* Ajuste a distância da borda esquerda se preferir */
-  top: -20px; /* Valor negativo joga a imagem um pouco para cima */
-  
+  left: 1%; /* Ajuste a distância da borda esquerda se preferir */
+  top: -20px; /* Valor negativo joga a imagem um pouco para cima */  
   width: 65px; /* Ajuste o tamanho da sua imagem PNG */
   height: auto;
   pointer-events: none;
@@ -364,7 +363,7 @@ html, body {
 
 /* Estilo geral das imagens decorativas da data */
 .date-deco {
-  width: 100px;      /* Ajuste o tamanho das imagens aqui */
+  width: 120px;      /* Ajuste o tamanho das imagens aqui */
   height: auto;     /* Mantém a proporção perfeita */
   object-fit: contain;
   pointer-events: none;
@@ -377,16 +376,4 @@ html, body {
 
 .date-deco-bottom {
   margin-top: 2px;
-}
-
-/* Estilo e posicionamento seguro para o GIF */
-.top-gif-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;        /* 👈 Defina uma largura fixa pequena */
-  height: auto;
-  z-index: 2;
-  pointer-events: none;
 }
