@@ -4,511 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convite Especial</title>
-
-  <!-- Google Fonts para Tipografia Elegante -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
-  <style>
-    /* VARIABLES E RESET */
-    :root {
-      --primary-color: #8C7051;   /* Tom dourado/champagne */
-      --accent-color: #5C6B57;    /* Tom verde elegante */
-      --bg-color: #FAF8F5;        /* Off-white */
-      --card-bg: #FFFFFF;
-      --text-main: #333333;
-      --text-muted: #666666;
-      --font-cursive: 'Great Vibes', cursive;
-      --font-serif: 'Cormorant Garamond', serif;
-      --font-sans: 'Montserrat', sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* CONTROLE DE ÁUDIO FLUTUANTE */
-    .audio-player {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--primary-color);
-      padding: 10px 16px;
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      cursor: pointer;
-      backdrop-filter: blur(5px);
-    }
-
-    .audio-player button {
-      background: none;
-      border: none;
-      color: var(--primary-color);
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    /* SEÇÃO HERO (CAPA) */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('imagens/foto-capa.jpg') no-repeat center center/cover;
-      color: #FFFFFF;
-      position: relative;
-    }
-
-    .hero h2 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-cursive);
-      font-size: 4rem;
-      margin: 15px 0;
-      font-weight: 400;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    }
-
-    .hero p.date {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      letter-spacing: 2px;
-      border-top: 1px solid rgba(255,255,255,0.6);
-      border-bottom: 1px solid rgba(255,255,255,0.6);
-      padding: 8px 25px;
-      margin-top: 15px;
-    }
-
-    /* CONTAINER PADRÃO */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 15px;
-      position: relative;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 30px;
-    }
-
-    /* CONTAGEM REGRESSIVA */
-    .countdown-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .countdown-item {
-      background: var(--card-bg);
-      padding: 20px 10px;
-      border-radius: 8px;
-      border: 1px solid #EBE5DF;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    }
-
-    .countdown-item span {
-      display: block;
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--primary-color);
-    }
-
-    .countdown-item label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-    }
-
-    /* CARD DE EVENTO / LOCAL */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #EBE5DF;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 25px;
-    }
-
-    .card-content h3 {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 22px;
-      background-color: var(--primary-color);
-      color: #FFFFFF;
-      text-decoration: none;
-      border-radius: 25px;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background-color: #725a3f;
-    }
-
-    /* GALERIA DE FOTOS */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.03);
-    }
-
-    /* FORMULÁRIO RSVP */
-    .form-group {
-      margin-bottom: 18px;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      margin-bottom: 5px;
-      color: var(--text-main);
-    }
-
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #DCD6CD;
-      border-radius: 6px;
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      background: #FFF;
-    }
-
-    /* PIX / PRESENTES */
-    .pix-box {
-      background: #F3EFEA;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .pix-box code {
-      background: #FFF;
-      padding: 8px 15px;
-      border: 1px solid #DCD6CD;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      word-break: break-all;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid #EBE5DF;
-    }
-
-    /* RESPONSIVIDADE MÓVEL */
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 3rem; }
-      .countdown-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- PLAYER DE ÁUDIO -->
-  <div class="audio-player" onclick="toggleAudio()">
-    <button id="playBtn">🎵</button>
-    <span id="audioText" style="font-size: 0.8rem; color: var(--primary-color);">Tocar Música</span>
-  </div>
-  <audio id="bgMusic" loop>
-    <!-- Substitua pelo caminho do seu arquivo de áudio -->
-    <source src="musica/musica.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- HERO / CAPA -->
-  <section class="hero">
-    <h2>Convidamos você para o nosso casamento</h2>
-    <h1>Maria & João</h1>
-    <p class="date">25 . 10 . 2026</p>
-  </section>
-
-  <!-- CONTAGEM REGRESSIVA -->
-  <section class="container">
-    <h2 class="section-title">Contagem Regressiva</h2>
-    <p class="section-subtitle">Faltam poucos dias para celebrarmos juntos!</p>
-    
-    <div class="countdown-grid">
-      <div class="countdown-item">
-        <span id="days">00</span>
-        <label>Dias</label>
-      </div>
-      <div class="countdown-item">
-        <span id="hours">00</span>
-        <label>Horas</label>
-      </div>
-      <div class="countdown-item">
-        <span id="minutes">00</span>
-        <label>Minutos</label>
-      </div>
-      <div class="countdown-item">
-        <span id="seconds">00</span>
-        <label>Segundos</label>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAMAÇÃO / LOCAIS -->
-  <section class="container" style="background-color: #F5F1EB; max-width: 100%;">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <h2 class="section-title">Programação</h2>
-      <p class="section-subtitle">Confira os horários e endereços dos nossos momentos</p>
-
-      <div class="card-grid">
-        <!-- Card Cerimônia -->
-        <div class="card">
-          <!-- Substitua o caminho da imagem -->
-          <img src="imagens/cerimonia.jpg" alt="Cerimônia">
-          <div class="card-content">
-            <h3>Cerimônia</h3>
-            <p><strong>Horário:</strong> 16:30h</p>
-            <p><strong>Local:</strong> Paróquia Nossa Senhora</p>
-            <p>Rua Exemplo, 123 - Centro</p>
-            <a href="https://maps.google.com" target="_blank" class="btn">Ver no Maps</a>
-          </div>
-        </div>
-
-        <!-- Card Festa -->
-        <div class="card">
-          <!-- Substitua o caminho da imagem -->
-          <img src="imagens/festa.jpg" alt="Recepção">
-          <div class="card-content">
-            <h3>Recepção</h3>
-            <p><strong>Horário:</strong> 18:30h</p>
-            <p><strong>Local:</strong> Espaço das Festas</p>
-            <p>Av. Das Flores, 456 - Jardim</p>
-            <a href="https://maps.google.com" target="_blank" class="btn">Ver no Maps</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERIA DE FOTOS -->
-  <section class="container">
-    <h2 class="section-title">Nossos Momentos</h2>
-    <p class="section-subtitle">Um pouco da nossa história em fotos</p>
-
-    <div class="gallery-grid">
-      <img src="imagens/foto1.jpg" alt="Foto 1">
-      <img src="imagens/foto2.jpg" alt="Foto 2">
-      <img src="imagens/foto3.jpg" alt="Foto 3">
-      <img src="imagens/foto4.jpg" alt="Foto 4">
-    </div>
-  </section>
-
-  <!-- CONFIRMAÇÃO DE PRESENÇA (RSVP) -->
-  <section class="container" style="background-color: #F5F1EB; max-width: 100%;">
-    <div style="max-width: 600px; margin: 0 auto;">
-      <h2 class="section-title">Confirmação de Presença</h2>
-      <p class="section-subtitle">Por favor, confirme sua presença até 10/10/2026</p>
-
-      <form id="rsvpForm" style="background: #FFF; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-        <div class="form-group">
-          <label for="nome">Nome Completo:</label>
-          <input type="text" id="nome" required placeholder="Seu nome completo">
-        </div>
-
-        <div class="form-group">
-          <label for="presenca">Você irá ao evento?</label>
-          <select id="presenca" required>
-            <option value="sim">Sim, estarei presente!</option>
-            <option value="nao">Infelizmente não poderei ir.</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="acompanhantes">Quantidade de Acompanhantes:</label>
-          <input type="number" id="acompanhantes" min="0" value="0">
-        </div>
-
-        <button type="submit" class="btn" style="width: 100%;">Enviar Confirmação</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- LISTA DE PRESENTES / PIX -->
-  <section class="container">
-    <h2 class="section-title">Lista de Presentes</h2>
-    <p class="section-subtitle">Sua presença é o nosso maior presente! Caso deseje nos presentear com algum valor, utilize nossa chave PIX:</p>
-
-    <div class="pix-box">
-      <strong>Chave PIX (E-mail / CPF):</strong>
-      <code id="pixKey">casamento.maria.joao@exemplo.com</code>
-      <button class="btn" onclick="copyPix()">Copiar Chave PIX</button>
-    </div>
-  </section>
-
-  <!-- RODAPÉ -->
-  <footer>
-    <p>Com carinho, Maria & João ❤️</p>
-  </footer>
-
-  <!-- JAVASCRIPT INTEGRADO -->
-  <script>
-    /* 1. MÚSICA DE FUNDO */
-    const audio = document.getElementById('bgMusic');
-    const playBtn = document.getElementById('playBtn');
-    const audioText = document.getElementById('audioText');
-
-    function toggleAudio() {
-      if (audio.paused) {
-        audio.play();
-        playBtn.textContent = '⏸️';
-        audioText.textContent = 'Pausar';
-      } else {
-        audio.pause();
-        playBtn.textContent = '🎵';
-        audioText.textContent = 'Tocar Música';
-      }
-    }
-
-    /* 2. CONTAGEM REGRESSIVA */
-    // Defina a data do evento aqui (Ano, Mês-1, Dia, Hora, Minuto)
-    const eventDate = new Date(2026, 9, 25, 16, 30).getTime(); // Outubro é mês 9 (0-indexed)
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        document.querySelector('.countdown-grid').innerHTML = "<h3>É hoje! Sejam bem-vindos!</h3>";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distanceSim, consigo criar um modelo completo de **convite digital de casamento/evento** elegante, responsivo e interativo em HTML, CSS e JavaScript puro (sem dependências externas). 
-
-Como não é possível extrair diretamente o código do site indicado, preparei uma estrutura **moderna, refinada e responsiva** inspirada nos convites do *Belo Convite*, contendo:
-
-*   **Capa/Hero principal** com dados dos noivos, data e local.
-*   **Contador regressivo em tempo real** (JavaScript).
-*   **Seção da cerimônia e recepção** com botões de integração para Waze/Google Maps.
-*   **Confirmação de Presença (RSVP)** com formulário interativo.
-*   **Mural de Mensagens / Lista de Presentes**.
-*   **Player de música de fundo** opcional.
-
----
-
-### 📄 1. Estrutura HTML (`index.html`)
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite de Casamento | Clara & Gabriel</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Fontes do Google Fonts -->
+  
+  <!-- Fontes Elegantes do Google Fonts -->
   <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
   <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
   <link href="[https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap)" rel="stylesheet">
+  
+  <!-- Link para o CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Áudio de Fundo (Opcional) -->
+  <!-- Player de Áudio Flutuante -->
+  <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵 Tocando Música</button>
   <audio id="bg-music" loop>
-    <source src="caminho/para/sua-musica.mp3" type="audio/mpeg">
+    <!-- Substitua pelo caminho da sua música -->
+    <source src="musica/sua-musica.mp3" type="audio/mpeg">
   </audio>
-  <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵 Música</button>
 
-  <!-- Hero / Capa Principal -->
+  <!-- Capa / Hero -->
   <header class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
@@ -518,7 +32,7 @@ Como não é possível extrair diretamente o código do site indicado, preparei 
     </div>
   </header>
 
-  <!-- Contador Regressivo -->
+  <!-- Contagem Regressiva -->
   <section class="countdown-section">
     <h2>Contagem Regressiva</h2>
     <div id="countdown" class="countdown-grid">
@@ -529,7 +43,7 @@ Como não é possível extrair diretamente o código do site indicado, preparei 
     </div>
   </section>
 
-  <!-- Detalhes do Evento -->
+  <!-- Programação e Locais -->
   <section class="event-details">
     <div class="container">
       <h2>Programação</h2>
@@ -537,16 +51,18 @@ Como não é possível extrair diretamente o código do site indicado, preparei 
       <div class="details-grid">
         <!-- Cerimônia -->
         <div class="card">
-          <img src="caminho/para/imagem-cerimonia.jpg" alt="Cerimônia" class="card-img">
+          <!-- Substitua o caminho da foto da cerimônia -->
+          <img src="imagens/cerimonia.jpg" alt="Cerimônia" class="card-img">
           <h3>Cerimônia Religiosa</h3>
           <p class="time">⏰ 16:30 hrs</p>
           <p class="location">Igreja Matriz de São José<br>Rua das Flores, 123 - Centro</p>
           <a href="[https://maps.google.com](https://maps.google.com)" target="_blank" class="btn btn-outline">Ver no Mapa</a>
         </div>
 
-        <!-- Recepção -->
+        <!-- Recepção / Festa -->
         <div class="card">
-          <img src="caminho/para/imagem-recepcao.jpg" alt="Recepção" class="card-img">
+          <!-- Substitua o caminho da foto da festa -->
+          <img src="imagens/festa.jpg" alt="Recepção" class="card-img">
           <h3>Recepção & Festas</h3>
           <p class="time">⏰ 18:30 hrs</p>
           <p class="location">Espaço Villa Garden<br>Av. dos Holandeses, 456 - Jardim</p>
@@ -560,7 +76,7 @@ Como não é possível extrair diretamente o código do site indicado, preparei 
   <section class="rsvp-section">
     <div class="container">
       <h2>Confirmação de Presença</h2>
-      <p>Por favor, confirme sua presença até o dia 01/10/2026.</p>
+      <p>Por favor, confirme sua presença para organizarmos tudo com carinho.</p>
       
       <form id="rsvp-form" class="rsvp-form">
         <div class="form-group">
@@ -569,12 +85,12 @@ Como não é possível extrair diretamente o código do site indicado, preparei 
         <div class="form-group">
           <select id="attendance" required>
             <option value="" disabled selected>Você irá comparecer?</option>
-            <option value="sim">Sim, com certeza!</option>
-            <option value="nao">Infelizmente não poderei ir</option>
+            <option value="Sim, estarei presente!">Sim, com certeza!</option>
+            <option value="Infelizmente não poderei ir">Infelizmente não poderei ir</option>
           </select>
         </div>
         <div class="form-group">
-          <input type="number" id="guests" min="1" max="5" placeholder="Número de acompanhantes">
+          <input type="number" id="guests" min="0" max="10" placeholder="Número de acompanhantes">
         </div>
         <button type="submit" class="btn btn-primary">Enviar Confirmação</button>
       </form>
@@ -585,10 +101,10 @@ Como não é possível extrair diretamente o código do site indicado, preparei 
   <section class="gifts-section">
     <div class="container">
       <h2>Lista de Presentes</h2>
-      <p>Sua presença é o nosso maior presente! Se desejar nos presentear, disponibilizamos a opção abaixo:</p>
+      <p>Sua presença é o nosso maior presente! Caso deseje nos presentear, utilize a chave PIX abaixo:</p>
       <div class="pix-box">
         <h3>Chave PIX</h3>
-        <p id="pix-key">contato@noivos.com.br</p>
+        <p id="pix-key">suachavepix@email.com</p>
         <button onclick="copyPix()" class="btn btn-secondary">Copiar Chave PIX</button>
       </div>
     </div>
@@ -599,6 +115,7 @@ Como não é possível extrair diretamente o código do site indicado, preparei 
     <p>Com carinho, Clara & Gabriel ❤️</p>
   </footer>
 
+  <!-- Script JS do projeto -->
   <script src="script.js"></script>
 </body>
 </html>
