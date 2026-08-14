@@ -1,12 +1,8 @@
 @font-face {
   font-family: 'Great Vibes';
-  src: url('index_files/great-vibes-regular.woff') format('truetype');
+  src: url("index_files/great-vibes-regular.woff") format('woff'),
+       
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
-
-/* Exemplo de uso */
-body {
-  font-family: 'Great Vibes', cursive;
 }
