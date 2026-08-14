@@ -363,7 +363,7 @@ html, body {
 
 /* Estilo geral das imagens decorativas da data */
 .date-deco {
-  width: 40px;      /* Ajuste o tamanho das imagens aqui */
+  width: 100px;      /* Ajuste o tamanho das imagens aqui */
   height: auto;     /* Mantém a proporção perfeita */
   object-fit: contain;
   pointer-events: none;
