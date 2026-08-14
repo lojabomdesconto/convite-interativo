@@ -43,6 +43,7 @@ html, body {
   width: 100%;
   height: 350px;
   position: relative;
+  overflow: hidden;   /* Evita que o GIF quebre a largura da página */
 }
 
 .top-photo-wrapper img {
@@ -378,16 +379,14 @@ html, body {
   margin-top: 2px;
 }
 
-/* Posicionamento do GIF sobreposto no topo */
+/* Estilo e posicionamento seguro para o GIF */
 .top-gif-overlay {
   position: absolute;
-  top: 50%;                 /* Centraliza na vertical */
-  left: 50%;                /* Centraliza na horizontal */
-  transform: translate(-50%, -50%); /* Alinha o centro exato do GIF */
-  
-  width: 50px;             /* Ajuste o tamanho do GIF aqui */
-  height: auto;             /* Mantém a proporção */
-  
-  z-index: 2;               /* Garante que fique acima da foto */
-  pointer-events: none;     /* Impede que o GIF atrapalhe cliques na tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;        /* 👈 Defina uma largura fixa pequena */
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
 }
