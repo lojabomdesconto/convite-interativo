@@ -336,6 +336,7 @@ html, body {
   position: absolute;
   left: 5%; /* Ajuste a distância da borda esquerda se preferir */
   top: -20px; /* Valor negativo joga a imagem um pouco para cima */
+  
   width: 65px; /* Ajuste o tamanho da sua imagem PNG */
   height: auto;
   pointer-events: none;
@@ -344,4 +345,35 @@ html, body {
 /* Garante que o título centralizado não sofra interferência */
 .names-container .couple-names {
   margin: 0;
+}
+/* Container que centraliza tudo na vertical */
+.date-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0 30px; /* Margem geral do bloco */
+}
+
+/* Removemos as margens externas do date-badge para não afastar as imagens */
+.date-wrapper .date-badge {
+  margin: 8px 0; /* Espaçamento entre a data e as imagens */
+}
+
+/* Estilo geral das imagens decorativas da data */
+.date-deco {
+  width: 40px;      /* Ajuste o tamanho das imagens aqui */
+  height: auto;     /* Mantém a proporção perfeita */
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Caso queira ajustar o espaçamento fino de cada uma individualmente */
+.date-deco-top {
+  margin-bottom: 2px;
+}
+
+.date-deco-bottom {
+  margin-top: 2px;
 }
