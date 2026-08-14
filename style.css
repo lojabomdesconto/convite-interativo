@@ -334,7 +334,7 @@ html, body {
 /* Estilo e posição da imagem PNG à esquerda e um pouco acima */
 .left-decoration {
   position: absolute;
-  left: -100%; /* Ajuste a distância da borda esquerda se preferir */
+  left: 70%; /* Ajuste a distância da borda esquerda se preferir */
   top: -20px; /* Valor negativo joga a imagem um pouco para cima */
   
   width: 65px; /* Ajuste o tamanho da sua imagem PNG */
@@ -385,7 +385,7 @@ html, body {
   left: 50%;                /* Centraliza na horizontal */
   transform: translate(-50%, -50%); /* Alinha o centro exato do GIF */
   
-  width: 50px;             /* 👈 Ajuste o tamanho do GIF aqui */
+  width: 50px;             /* Ajuste o tamanho do GIF aqui */
   height: auto;             /* Mantém a proporção */
   
   z-index: 2;               /* Garante que fique acima da foto */
