@@ -377,3 +377,17 @@ html, body {
 .date-deco-bottom {
   margin-top: 2px;
 }
+
+/* Posicionamento do GIF sobreposto no topo */
+.top-gif-overlay {
+  position: absolute;
+  top: 50%;                 /* Centraliza na vertical */
+  left: 50%;                /* Centraliza na horizontal */
+  transform: translate(-50%, -50%); /* Alinha o centro exato do GIF */
+  
+  width: 120px;             /* 👈 Ajuste o tamanho do GIF aqui */
+  height: auto;             /* Mantém a proporção */
+  
+  z-index: 2;               /* Garante que fique acima da foto */
+  pointer-events: none;     /* Impede que o GIF atrapalhe cliques na tela */
+}
