@@ -334,7 +334,7 @@ html, body {
 /* Estilo e posição da imagem PNG à esquerda e um pouco acima */
 .left-decoration {
   position: absolute;
-  left: 1%; /* Ajuste a distância da borda esquerda se preferir */
+  left: 70%; /* Ajuste a distância da borda esquerda se preferir */
   top: -20px; /* Valor negativo joga a imagem um pouco para cima */
   
   width: 65px; /* Ajuste o tamanho da sua imagem PNG */
