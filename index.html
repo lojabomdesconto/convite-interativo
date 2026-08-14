@@ -3,119 +3,446 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite Especial</title>
+  <title>Convite de Casamento - Renata e Henrique</title>
   
-  <!-- Fontes Elegantes do Google Fonts -->
-  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-  <link href="[https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap)" rel="stylesheet">
+  <!-- Fontes do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Link para o CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Ícones Phosphor / FontAwesome para os botões -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-color: #FAF8F5;
+      --primary-color: #A86D48; /* Terracota / Caramelo */
+      --text-gold: #B38656;     /* Dourado / Café com leite */
+      --text-dark: #6E533F;
+      --font-cursive: 'Alex Brush', cursive;
+      --font-serif: 'Cinzel', serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #2b2b2b; /* Fundo escuro fora do cartão (em telas de PC) */
+      font-family: var(--font-serif);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Container estilo celular / convite vertical */
+    .card-container {
+      width: 100%;
+      max-width: 420px;
+      background-color: var(--bg-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* --- PARTE 1: CAPA --- */
+    .top-photo-wrapper {
+      width: 100%;
+      height: 280px;
+      position: relative;
+    }
+
+    .top-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Suavização da foto para o fundo */
+    .top-photo-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(254,253,252,0) 0%, var(--bg-color) 100%);
+    }
+
+    .main-content {
+      padding: 20px 25px 40px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .couple-names {
+      font-family: var(--font-cursive);
+      font-size: 3.8rem;
+      color: var(--primary-color);
+      line-height: 1.1;
+      margin: 10px 0 20px;
+      font-weight: normal;
+    }
+
+    .couple-names span {
+      display: block;
+      font-size: 2.2rem;
+      margin: -5px 0;
+    }
+
+    .invitation-text {
+      font-size: 0.75rem;
+      color: var(--text-gold);
+      letter-spacing: 1.5px;
+      line-height: 1.8;
+      max-width: 280px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .location-info {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .divider-line {
+      width: 80%;
+      height: 1px;
+      background-color: var(--text-gold);
+      opacity: 0.5;
+      margin: 0 auto;
+    }
+
+    .location-text {
+      font-size: 0.8rem;
+      color: var(--text-gold);
+      letter-spacing: 2px;
+      padding: 8px 0;
+      text-transform: uppercase;
+    }
+
+    .time-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--text-gold);
+      letter-spacing: 1.5px;
+      margin-bottom: 30px;
+    }
+
+    /* Bloco da Data */
+    .date-badge {
+      background-color: var(--primary-color);
+      color: #FFFFFF;
+      font-size: 2.2rem;
+      font-weight: 500;
+      padding: 10px 40px;
+      letter-spacing: 3px;
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+      margin: 20px 0 40px;
+    }
+
+    /* --- PARTE 2: BOTÕES INTERATIVOS --- */
+    .touch-instruction {
+      font-size: 0.75rem;
+      color: var(--text-gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .interactive-buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-row:hover {
+      transform: scale(1.03);
+    }
+
+    .icon-square {
+      width: 70px;
+      height: 70px;
+      background-color: var(--primary-color);
+      border: 1px solid var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 1.8rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn-label {
+      font-size: 0.8rem;
+      color: var(--text-gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .btn-label::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--text-gold);
+    }
+
+    /* --- PARTE INFERIOR: FOTO E RODAPÉ --- */
+    .bottom-section {
+      width: 100%;
+      position: relative;
+    }
+
+    .bottom-photo-wrapper {
+      width: 100%;
+      height: 380px;
+      position: relative;
+    }
+
+    .bottom-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Transição suave da foto inferior com o topo */
+    .bottom-photo-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to top, rgba(254,253,252,0) 0%, var(--bg-color) 100%);
+    }
+
+    .waiting-text {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 100%;
+      font-family: var(--font-cursive);
+      font-size: 3.2rem;
+      color: var(--primary-color);
+      z-index: 2;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      line-height: 1;
+    }
+
+    /* MODAL DO FORMULÁRIO RSVP */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: var(--bg-color);
+      padding: 30px 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border: 1px solid var(--primary-color);
+    }
+
+    .modal-content h3 {
+      color: var(--primary-color);
+      font-family: var(--font-serif);
+      margin-bottom: 15px;
+    }
+
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid var(--text-gold);
+      background: #FFF;
+      font-family: var(--font-serif);
+    }
+
+    .modal-btn {
+      background: var(--primary-color);
+      color: #FFF;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Player de Áudio Flutuante -->
-  <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵 Tocando Música</button>
-  <audio id="bg-music" loop>
-    <!-- Substitua pelo caminho da sua música -->
-    <source src="musica/sua-musica.mp3" type="audio/mpeg">
-  </audio>
+  <div class="card-container">
 
-  <!-- Capa / Hero -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <p class="subtitle">CONVITAM PARA SEU CASAMENTO</p>
-      <h1 class="names">Clara <span class="ampersand">&</span> Gabriel</h1>
-      <p class="event-date">24 DE OUTUBRO DE 2026</p>
+    <!-- FOTO DO TOPO -->
+    <div class="top-photo-wrapper">
+      <!-- Substitua a imagem abaixo pela foto do topo -->
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Foto Casal Topo">
     </div>
-  </header>
 
-  <!-- Contagem Regressiva -->
-  <section class="countdown-section">
-    <h2>Contagem Regressiva</h2>
-    <div id="countdown" class="countdown-grid">
-      <div class="time-box"><span id="days">00</span><p>Dias</p></div>
-      <div class="time-box"><span id="hours">00</span><p>Horas</p></div>
-      <div class="time-box"><span id="minutes">00</span><p>Minutos</p></div>
-      <div class="time-box"><span id="seconds">00</span><p>Segundos</p></div>
-    </div>
-  </section>
-
-  <!-- Programação e Locais -->
-  <section class="event-details">
-    <div class="container">
-      <h2>Programação</h2>
+    <div class="main-content">
       
-      <div class="details-grid">
-        <!-- Cerimônia -->
-        <div class="card">
-          <!-- Substitua o caminho da foto da cerimônia -->
-          <img src="imagens/cerimonia.jpg" alt="Cerimônia" class="card-img">
-          <h3>Cerimônia Religiosa</h3>
-          <p class="time">⏰ 16:30 hrs</p>
-          <p class="location">Igreja Matriz de São José<br>Rua das Flores, 123 - Centro</p>
-          <a href="[https://maps.google.com](https://maps.google.com)" target="_blank" class="btn btn-outline">Ver no Mapa</a>
+      <!-- NOMES -->
+      <h1 class="couple-names">
+        Renata
+        <span>e</span>
+        Henrique
+      </h1>
+
+      <!-- TEXTO DE CONVITE -->
+      <p class="invitation-text">
+        Com a bênção de Deus e com muita alegria que convidamos você para a celebração do nosso casamento
+      </p>
+
+      <!-- LOCAL E HORA -->
+      <div class="location-info">
+        <div class="divider-line"></div>
+        <p class="location-text">Na Igreja Nossa Senhora da Paz</p>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="time-text">
+        <i class="far fa-clock"></i>
+        <span>17H PONTUALMENTE</span>
+      </div>
+
+      <!-- DATA DESTAQUE -->
+      <div class="date-badge">
+        26.04
+      </div>
+
+      <!-- INSTRUÇÃO -->
+      <p class="touch-instruction">Toque para interagir</p>
+
+      <!-- BOTÕES INTERATIVOS (ZIG-ZAG) -->
+      <div class="interactive-buttons">
+
+        <!-- 1. Cerimônia (Esquerda) -->
+        <a href="https://maps.google.com" target="_blank" class="btn-row">
+          <div class="icon-square">
+            <i class="fas fa-church"></i>
+          </div>
+          <span class="btn-label">Local da Cerimônia</span>
+        </a>
+
+        <!-- 2. Recepção (Direita) -->
+        <a href="https://maps.google.com" target="_blank" class="btn-row" style="flex-direction: row-reverse;">
+          <div class="icon-square">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <span class="btn-label">Local da Recepção</span>
+        </a>
+
+        <!-- 3. Confirmar Presença (Esquerda) -->
+        <div class="btn-row" onclick="openRSVP()">
+          <div class="icon-square">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <span class="btn-label">Confirmar Presença</span>
         </div>
 
-        <!-- Recepção / Festa -->
-        <div class="card">
-          <!-- Substitua o caminho da foto da festa -->
-          <img src="imagens/festa.jpg" alt="Recepção" class="card-img">
-          <h3>Recepção & Festas</h3>
-          <p class="time">⏰ 18:30 hrs</p>
-          <p class="location">Espaço Villa Garden<br>Av. dos Holandeses, 456 - Jardim</p>
-          <a href="[https://maps.google.com](https://maps.google.com)" target="_blank" class="btn btn-outline">Ver no Mapa</a>
-        </div>
+      </div>
+
+    </div>
+
+    <!-- FOTO DA PARTE INFERIOR -->
+    <div class="bottom-section">
+      <div class="waiting-text">
+        Esperamos<br>por você!
+      </div>
+      <div class="bottom-photo-wrapper">
+        <!-- Substitua a imagem abaixo pela foto inferior -->
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Foto Casal Rodapé">
       </div>
     </div>
-  </section>
 
-  <!-- Confirmação de Presença (RSVP) -->
-  <section class="rsvp-section">
-    <div class="container">
-      <h2>Confirmação de Presença</h2>
-      <p>Por favor, confirme sua presença para organizarmos tudo com carinho.</p>
-      
-      <form id="rsvp-form" class="rsvp-form">
-        <div class="form-group">
-          <input type="text" id="name" placeholder="Seu nome completo" required>
-        </div>
-        <div class="form-group">
-          <select id="attendance" required>
-            <option value="" disabled selected>Você irá comparecer?</option>
-            <option value="Sim, estarei presente!">Sim, com certeza!</option>
-            <option value="Infelizmente não poderei ir">Infelizmente não poderei ir</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <input type="number" id="guests" min="0" max="10" placeholder="Número de acompanhantes">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar Confirmação</button>
+  </div>
+
+  <!-- MODAL RSVP -->
+  <div id="rsvpModal" class="modal">
+    <div class="modal-content">
+      <h3>Confirmação de Presença</h3>
+      <form id="rsvpForm">
+        <input type="text" id="nome" placeholder="Seu Nome Completo" required>
+        <select id="presenca">
+          <option value="Sim">Sim, estarei presente</option>
+          <option value="Não">Não poderei ir</option>
+        </select>
+        <input type="number" id="acompanhantes" placeholder="Qtde de acompanhantes" min="0" value="0">
+        <button type="submit" class="modal-btn">Enviar via WhatsApp</button>
+        <button type="button" class="modal-btn" style="background:#888; margin-top:5px;" onclick="closeRSVP()">Cancelar</button>
       </form>
     </div>
-  </section>
+  </div>
 
-  <!-- Lista de Presentes / PIX -->
-  <section class="gifts-section">
-    <div class="container">
-      <h2>Lista de Presentes</h2>
-      <p>Sua presença é o nosso maior presente! Caso deseje nos presentear, utilize a chave PIX abaixo:</p>
-      <div class="pix-box">
-        <h3>Chave PIX</h3>
-        <p id="pix-key">suachavepix@email.com</p>
-        <button onclick="copyPix()" class="btn btn-secondary">Copiar Chave PIX</button>
-      </div>
-    </div>
-  </section>
+  <!-- JAVASCRIPT -->
+  <script>
+    function openRSVP() {
+      document.getElementById('rsvpModal').style.display = 'flex';
+    }
 
-  <!-- Rodapé -->
-  <footer>
-    <p>Com carinho, Clara & Gabriel ❤️</p>
-  </footer>
+    function closeRSVP() {
+      document.getElementById('rsvpModal').style.display = 'none';
+    }
 
-  <!-- Script JS do projeto -->
-  <script src="script.js"></script>
+    // Enviar dados para o WhatsApp ao submeter o formulário
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const nome = document.getElementById('nome').value;
+      const presenca = document.getElementById('presenca').value;
+      const acompanhantes = document.getElementById('acompanhantes').value;
+
+      const texto = `Olá! Confirmando presença no casamento de Renata e Henrique:%0A*Nome:* ${nome}%0A*Vai comparecer?* ${presenca}%0A*Acompanhantes:* ${acompanhantes}`;
+      
+      // Digite aqui o número de WhatsApp com DDD (Ex: 5511999999999)
+      const numeroWhats = "5511999999999";
+
+      window.open(`https://wa.me/${numeroWhats}?text=${texto}`, '_blank');
+      closeRSVP();
+    });
+  </script>
+
 </body>
 </html>
