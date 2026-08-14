@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7efe8">
+  <meta name="description" content="Convite de casamento — Paulo e Thais">
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Paulo e Thais — Convite de casamento</title>
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+  <main>
+    <section class="hero section">
+      <img class="floral floral-left" src="assets/flor-lateral-esquerda.png" alt="" aria-hidden="true">
+      <img class="floral floral-center" src="assets/flor-meio.png" alt="" aria-hidden="true">
+      <img class="logo" src="assets/logo.png" alt="Paulo e Thais">
+      <p class="eyebrow">Convite de casamento</p>
+      <h1>Paulo <span>&amp;</span> Thais</h1>
+      <p class="date">26.04</p>
+      <p class="intro">Com a benção de Deus e com muita alegria que convidamos você para a celebração do nosso casamento.</p>
+      <button class="scroll-button" data-scroll="historia" aria-label="Continuar">Toque para interagir <span>↓</span></button>
+    </section>
+
+    <section id="historia" class="section message">
+      <div class="ornament">✦</div>
+      <p>Esperamos<br>por você!</p>
+      <div class="photo-grid">
+        <img src="assets/casal-foto1.jpg" alt="Foto do casal" loading="lazy">
+        <img src="assets/casal-foto2.jpg" alt="Foto do casal" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section details">
+      <img class="floral floral-bottom" src="assets/flor-baixo.png" alt="" aria-hidden="true">
+      <p class="eyebrow">Cerimônia</p>
+      <h2>Local da cerimônia</h2>
+      <p class="place">Na Igreja Nossa Senhora da Paz</p>
+      <p class="time">17h pontualmente</p>
+      <a class="map-button" href="#" data-map-link>Ver localização</a>
+    </section>
+
+    <section class="section reception">
+      <img class="floral floral-data" src="assets/flor-data.png" alt="" aria-hidden="true">
+      <p class="eyebrow">Depois da cerimônia</p>
+      <h2>Recepção</h2>
+      <p class="place">Local da recepção</p>
+      <p class="time">Após a cerimônia</p>
+    </section>
+
+    <section class="section rsvp" id="rsvp">
+      <div class="card">
+        <p class="eyebrow">Sua presença é muito importante</p>
+        <h2>Confirmar presença</h2>
+        <p>Confirme sua presença para nos ajudar a preparar tudo com carinho.</p>
+        <form id="rsvpForm">
+          <label>Seu nome<input name="nome" required autocomplete="name" placeholder="Digite seu nome"></label>
+          <label>Quantidade de pessoas<input name="quantidade" type="number" min="1" max="10" value="1" required></label>
+          <button type="submit">Confirmar presença</button>
+        </form>
+        <p class="form-note">O destino da confirmação é configurado no arquivo <code>script.js</code>.</p>
+      </div>
+    </section>
+
+    <footer class="section footer">
+      <img src="assets/logo.png" alt="" class="footer-logo">
+      <p>Paulo &amp; Thais</p>
+      <small>26.04</small>
+    </footer>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>
