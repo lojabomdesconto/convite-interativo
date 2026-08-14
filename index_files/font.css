@@ -6,3 +6,20 @@
   font-style: normal;
   font-display: swap;
 }
+.texto-vibes {
+  font-family: 'Great Vibes', cursive;
+  color: rgb(150, 64, 4);
+  line-height: 243px;
+  letter-spacing: 0em;
+  text-transform: none;
+  list-style-type: none;
+}
+
+.texto-vibes span {
+  font-size: 1em;
+  font-weight: 900;
+  font-style: normal;
+  color: rgb(150, 64, 4);
+  font-kerning: none;
+  text-decoration: none;
+}
