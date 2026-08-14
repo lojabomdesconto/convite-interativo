@@ -320,3 +320,28 @@ html, body {
     height: 50vh; /* Ajusta a altura da foto proporcionalmente à tela do celular */
   }
 }
+
+/* Container que agrupa a imagem e os nomes */
+.names-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 15px 0 20px;
+}
+
+/* Estilo e posição da imagem PNG à esquerda e um pouco acima */
+.left-decoration {
+  position: absolute;
+  left: 5%; /* Ajuste a distância da borda esquerda se preferir */
+  top: -20px; /* Valor negativo joga a imagem um pouco para cima */
+  width: 65px; /* Ajuste o tamanho da sua imagem PNG */
+  height: auto;
+  pointer-events: none;
+}
+
+/* Garante que o título centralizado não sofra interferência */
+.names-container .couple-names {
+  margin: 0;
+}
