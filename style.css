@@ -16,7 +16,7 @@
 html, body {
   width: 100%;
   min-height: 100vh;
-  background-color: faf8f5; /* Fundo elegante para o computador */
+  background-color: #faf8f5; /* Fundo elegante para o computador */
   font-family: var(--font-serif);
   overflow-x: hidden;
   display: flex;
