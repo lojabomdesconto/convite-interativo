@@ -335,9 +335,9 @@ html, body {
 /* Estilo e posição da imagem PNG à esquerda e um pouco acima */
 .left-decoration {
   position: absolute;
-  left: -30%; /* Ajuste a distância da borda esquerda se preferir */
+  left: -60%; /* Ajuste a distância da borda esquerda se preferir */
   top: -20px; /* Valor negativo joga a imagem um pouco para cima */  
-  width: 200px; /* Ajuste o tamanho da sua imagem PNG */
+  width: 400px; /* Ajuste o tamanho da sua imagem PNG */
   height: auto;
   pointer-events: none;
 }
@@ -358,12 +358,12 @@ html, body {
 
 /* Removemos as margens externas do date-badge para não afastar as imagens */
 .date-wrapper .date-badge {
-  margin: 8px 0; /* Espaçamento entre a data e as imagens */
+  margin: 1px 0; /* Espaçamento entre a data e as imagens */
 }
 
 /* Estilo geral das imagens decorativas da data */
 .date-deco {
-  width: 120px;      /* Ajuste o tamanho das imagens aqui */
+  width: 220px;      /* Ajuste o tamanho das imagens aqui */
   height: auto;     /* Mantém a proporção perfeita */
   object-fit: contain;
   pointer-events: none;
