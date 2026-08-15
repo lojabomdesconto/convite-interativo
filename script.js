@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const presenca = document.getElementById("presenca").value;
       const acompanhantes = document.getElementById("acompanhantes").value;
 
-      const mensagem = `Olá! Confirmando presença no casamento de Renata e Henrique:%0A*Nome:* ${nome}%0A*Vai comparecer?* ${presenca}%0A*Acompanhantes:* ${acompanhantes}`;
+      const mensagem = `Olá! Confirmando presença no casamento de Isabela e Murilo:%0A*Nome:* ${nome}%0A*Vai comparecer?* ${presenca}%0A*Acompanhantes:* ${acompanhantes}`;
       const numeroWhats = "5511999999999";
 
       window.open(`https://wa.me/${numeroWhats}?text=${mensagem}`, "_blank");
