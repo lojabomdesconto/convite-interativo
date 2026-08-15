@@ -377,3 +377,15 @@ html, body {
 .date-deco-bottom {
   margin-top: 2px;
 }
+
+/* Estilo isolado para o GIF flutuante */
+.top-gif-overlay {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;         /* Ajuste o tamanho do GIF aqui */
+  height: auto;
+  z-index: 2;          /* Fica acima da foto e do gradiente */
+  pointer-events: none;/* Não interfere nos cliques */
+}
